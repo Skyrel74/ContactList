@@ -8,10 +8,6 @@
 
 import UIKit
 
-//В вёрстке ячейке немного стоит поправить констрейнты,
-//иначе при длинном имени или фамилии текст начинает нализать
-//на номер телефона.
-
 class TableCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
