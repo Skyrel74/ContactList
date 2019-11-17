@@ -14,14 +14,15 @@ class CreateContactVC: UIViewController {
     @IBOutlet weak var surnameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        errorLabel.text = ""
-    }
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.phoneField.delegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        errorLabel.text = ""
     }
     
     @IBAction func saveContact(_ sender: Any) {
@@ -29,18 +30,23 @@ class CreateContactVC: UIViewController {
             if (phoneField.text?.count != 11) {
                 errorLabel.text = "Phone nuber should contain 11 numbers"
             } else {
-                let newContact = Contact(
-                    name: nameField.text as! String,
-                    surname: surnameField.text,
-                    number: phoneField!.text as! String
-                )
-                Contact.shared.append(newContact)
-                
-                self.navigationController?.popViewController(animated: true)
+                self.loadIndicator.startAnimating()
+                DispatchQueue.global().async {
+                    API.createContact(
+                        name: self.nameField!.text!,
+                        surname: self.surnameField.text,
+                        number: self.phoneField.text!)
+                    { result in
+                        guard result else { return }
+                    }
+                    DispatchQueue.main.async {
+                        self.loadIndicator.stopAnimating()
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
-        }
-        else {
-            errorLabel.text = "You can not make new contact without name and phone number\nPlease fill these fields"
+        } else {
+            errorLabel.text = "You can not make new contact without name or phone number\nPlease fill these fields"
         }
     }
 

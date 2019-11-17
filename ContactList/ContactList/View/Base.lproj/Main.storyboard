@@ -71,21 +71,27 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="fwf-lP-TY5"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you have no contacts, but you could add them by pressing button in right-top of display" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-B6-C2D">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you have no contacts, but you could add them by pressing button in right-top of display" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-B6-C2D">
                                 <rect key="frame" x="10" y="323" width="355" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GBh-gs-M6P">
+                                <rect key="frame" x="177" y="344" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.81376936259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="GBh-gs-M6P" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BkM-Ll-G2T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="udb-B6-C2D" secondAttribute="trailing" constant="10" id="C5M-mu-T7L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="udb-B6-C2D" secondAttribute="bottom" constant="50" id="Co7-q4-NcL"/>
                             <constraint firstItem="mmJ-R3-Yue" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fwe-TQ-Rte"/>
                             <constraint firstItem="udb-B6-C2D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="R4H-Vj-9N0"/>
                             <constraint firstItem="mmJ-R3-Yue" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T5J-BV-3ws"/>
                             <constraint firstItem="udb-B6-C2D" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="VFH-XN-0qy"/>
+                            <constraint firstItem="GBh-gs-M6P" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="XTE-LU-1fA"/>
                             <constraint firstItem="udb-B6-C2D" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="aeC-gr-Fcx"/>
                             <constraint firstItem="udb-B6-C2D" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mFt-zN-Ncq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mmJ-R3-Yue" secondAttribute="trailing" id="mVT-xP-C8d"/>
@@ -105,6 +111,7 @@
                     <connections>
                         <outlet property="addInfo" destination="udb-B6-C2D" id="wPY-gh-f5f"/>
                         <outlet property="contactsList" destination="mmJ-R3-Yue" id="pkA-xG-OAB"/>
+                        <outlet property="loadIndicator" destination="GBh-gs-M6P" id="G4s-yN-eMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -151,7 +158,7 @@
                                     <action selector="saveContact:" destination="0C0-k1-jQh" eventType="touchUpInside" id="jlH-gV-mTC"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1p5-tB-WuR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname(Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1p5-tB-WuR">
                                 <rect key="frame" x="100" y="294" width="175" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -169,6 +176,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JTe-NB-UhU">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.81376936259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -176,6 +187,7 @@
                             <constraint firstItem="fru-Yv-h2a" firstAttribute="top" secondItem="1p5-tB-WuR" secondAttribute="bottom" constant="100" id="5Dy-wb-S9a"/>
                             <constraint firstItem="5NQ-Ma-G9E" firstAttribute="trailing" secondItem="1p5-tB-WuR" secondAttribute="trailing" constant="100" id="8os-iH-5IP"/>
                             <constraint firstItem="5NQ-Ma-G9E" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r2T-6B-x6n" secondAttribute="trailing" constant="10" id="D0Q-S0-tY3"/>
+                            <constraint firstItem="JTe-NB-UhU" firstAttribute="centerX" secondItem="5NQ-Ma-G9E" secondAttribute="centerX" id="GEc-lk-3eT"/>
                             <constraint firstItem="yKV-Oq-RRm" firstAttribute="centerX" secondItem="5NQ-Ma-G9E" secondAttribute="centerX" id="MSE-1d-bKC"/>
                             <constraint firstItem="Al9-cY-jYm" firstAttribute="top" secondItem="5NQ-Ma-G9E" secondAttribute="top" constant="100" id="NWa-eN-H6M"/>
                             <constraint firstItem="fru-Yv-h2a" firstAttribute="centerX" secondItem="5NQ-Ma-G9E" secondAttribute="centerX" id="ONq-4d-ABs"/>
@@ -188,6 +200,7 @@
                             <constraint firstItem="5NQ-Ma-G9E" firstAttribute="trailing" secondItem="Al9-cY-jYm" secondAttribute="trailing" constant="100" id="Zbg-Gy-8BZ"/>
                             <constraint firstItem="1p5-tB-WuR" firstAttribute="top" secondItem="Al9-cY-jYm" secondAttribute="bottom" constant="100" id="bat-d9-ioJ"/>
                             <constraint firstItem="r2T-6B-x6n" firstAttribute="top" secondItem="yKV-Oq-RRm" secondAttribute="bottom" constant="20" id="eZg-rS-kML"/>
+                            <constraint firstItem="JTe-NB-UhU" firstAttribute="centerY" secondItem="5NQ-Ma-G9E" secondAttribute="centerY" id="ekE-EB-HZe"/>
                             <constraint firstItem="yKV-Oq-RRm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5NQ-Ma-G9E" secondAttribute="leading" constant="10" id="foR-rd-en6"/>
                             <constraint firstItem="r2T-6B-x6n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5NQ-Ma-G9E" secondAttribute="leading" constant="10" id="rtJ-20-e4e"/>
                             <constraint firstItem="5NQ-Ma-G9E" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yKV-Oq-RRm" secondAttribute="trailing" constant="10" id="vNb-Wi-4aB"/>
@@ -197,6 +210,7 @@
                     </view>
                     <connections>
                         <outlet property="errorLabel" destination="yKV-Oq-RRm" id="YLW-eM-C0F"/>
+                        <outlet property="loadIndicator" destination="JTe-NB-UhU" id="zOg-RA-Qg1"/>
                         <outlet property="nameField" destination="Al9-cY-jYm" id="Qdd-nK-gBp"/>
                         <outlet property="phoneField" destination="fru-Yv-h2a" id="H4L-5e-YJN"/>
                         <outlet property="surnameField" destination="1p5-tB-WuR" id="W9I-xT-6wR"/>

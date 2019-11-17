@@ -14,7 +14,7 @@ class TableCell: UITableViewCell {
     @IBOutlet weak var surnameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
-    func setup(name: String?, surname: String?, number: String?) {
+    func setup(name: String, surname: String?, number: String) {
         nameLabel.text = name
         surnameLabel.text = surname
         numberLabel.text = number
