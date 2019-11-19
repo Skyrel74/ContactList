@@ -16,12 +16,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-/*
-        Contact.shared.append(Contact(name: "Ilya", surname: "Rakipov", number: "89507357030"))
-        Contact.shared.append(Contact(name: "Egor", surname: "Letov", number: "88005553535"))
-        Contact.shared.append(Contact(name: "Kurt", surname: "Kobein", number: "89567341254"))
-*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +38,14 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EDSegue" {            
+            if let nextViewController = segue.destination as? EditAndDeleteVC {
+                let indexPath = self.contactsList.indexPathForSelectedRow
+                nextViewController.indexPathRow = indexPath!.row
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource {

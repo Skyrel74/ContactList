@@ -16,6 +16,7 @@
 		90E765B3237724860052C1CD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E765B2237724860052C1CD /* Contact.swift */; };
 		90E765B723774AD90052C1CD /* CreateContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E765B623774AD90052C1CD /* CreateContactVC.swift */; };
 		90E765B923775CC20052C1CD /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E765B823775CC20052C1CD /* TableCell.swift */; };
+		90F492E32383EA69001327A9 /* EditAndDeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F492E22383EA69001327A9 /* EditAndDeleteVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		90E765B2237724860052C1CD /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		90E765B623774AD90052C1CD /* CreateContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactVC.swift; sourceTree = "<group>"; };
 		90E765B823775CC20052C1CD /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		90F492E22383EA69001327A9 /* EditAndDeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAndDeleteVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				90E765B823775CC20052C1CD /* TableCell.swift */,
 				90E765B623774AD90052C1CD /* CreateContactVC.swift */,
 				90AF148B237717F00070BDBD /* ViewController.swift */,
+				90F492E22383EA69001327A9 /* EditAndDeleteVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				90E765B3237724860052C1CD /* Contact.swift in Sources */,
 				90E765B723774AD90052C1CD /* CreateContactVC.swift in Sources */,
 				90AF148C237717F00070BDBD /* ViewController.swift in Sources */,
+				90F492E32383EA69001327A9 /* EditAndDeleteVC.swift in Sources */,
 				90A898412380554F00574CAD /* API.swift in Sources */,
 				90AF148A237717F00070BDBD /* AppDelegate.swift in Sources */,
 			);
