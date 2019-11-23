@@ -31,19 +31,15 @@ class CreateContactVC: UIViewController {
                 errorLabel.text = "Phone nuber should contain 11 numbers"
             } else {
                 self.loadIndicator.startAnimating()
-                DispatchQueue.global().async {
-                    API.createContact(
-                        name: self.nameField!.text!,
-                        surname: self.surnameField.text,
-                        number: self.phoneField.text!)
-                    { result in
-                        guard result else { return }
-                    }
-                    DispatchQueue.main.async {
-                        self.loadIndicator.stopAnimating()
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                API.createContact(
+                    name: self.nameField!.text!,
+                    surname: self.surnameField.text,
+                    number: self.phoneField.text!)
+                { result in
+                    guard result else { return }
                 }
+                self.loadIndicator.stopAnimating()
+                self.navigationController?.popViewController(animated: true)
             }
         } else {
             errorLabel.text = "You can not make new contact without name or phone number\nPlease fill these fields"

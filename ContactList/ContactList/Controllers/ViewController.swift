@@ -21,20 +21,16 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loadIndicator.startAnimating()
-        DispatchQueue.global().async {
-            API.loadContacts { contactsArray in
-                Contact.shared = contactsArray
-                self.contactsList.reloadData()
+        API.loadContacts { contactsArray in
+            Contact.shared = contactsArray
+            self.contactsList.reloadData()
+            if (self.contactsList.numberOfSections == 0) {
+                self.addInfo.alpha = 1.0
             }
-            DispatchQueue.main.async {
-                if (self.contactsList.numberOfSections == 0) {
-                    self.addInfo.alpha = 1.0
-                }
-                else {
-                    self.addInfo.alpha = 0.0
-                }
-                self.loadIndicator.stopAnimating()
+            else {
+                self.addInfo.alpha = 0.0
             }
+            self.loadIndicator.stopAnimating()
         }
     }
     
